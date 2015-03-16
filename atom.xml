@@ -4,7 +4,7 @@
   <title><![CDATA[燕东的博客]]></title>
   <link href="http://yandongdabin.github.io/atom.xml" rel="self"/>
   <link href="http://yandongdabin.github.io/"/>
-  <updated>2015-03-16T21:28:25+08:00</updated>
+  <updated>2015-03-16T21:45:53+08:00</updated>
   <id>http://yandongdabin.github.io/</id>
   <author>
     <name><![CDATA[燕东]]></name>
@@ -18,10 +18,10 @@
     <link href="http://yandongdabin.github.io/blog/2015/03/16/wo-de-bo-ke/"/>
     <updated>2015-03-16T17:39:53+08:00</updated>
     <id>http://yandongdabin.github.io/blog/2015/03/16/wo-de-bo-ke</id>
-    <content type="html"><![CDATA[<!-- more -->
+    <content type="html"><![CDATA[<p>废了几个小时的功夫，终于把octopress给安装完成了，现在我正在学习markdown的语法，所以会感到有一些的别扭。那么就用我这不太熟悉的markdown语法写下关于markdown和octopress的一些知识。</p>
 
+<!-- more -->
 
-<p>废了几个小时的功夫，终于把octopress给安装完成了，现在我正在学习markdown的语法，所以会感到有一些的别扭。那么就用我这不太熟悉的markdown语法写下关于markdown和octopress的一些知识。</p>
 
 <h1>markdown的基本语法</h1>
 
@@ -216,6 +216,39 @@ than from [Yahoo](http://search.yahoo.com/ "Yahoo Search") or
 <p>使用 Markdown 的参考式链接，可以让文件更像是浏览器最后产生的结果，让你可以把一些标记相关的元数据移到段落文字之外，你就可以增加链接而不让文章的阅读感觉被打断。</p>
 
 <h3>然后就是图片 强调等不一一列举</h3>
+
+<h1>octopress的安装过程</h1>
+
+<p>其实安装过程还是比较曲折的，主要是自己对linux不是特别的熟悉，并且还是首先掌握了git的一些基本知识。
+首先列出我的参考链接：</p>
+
+<p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">git教程</a></p>
+
+<p><a href="http://www.freehao123.com/octopress/">用Octopress免费静态博客系统在Github免费空间上搭建个人网站</a></p>
+
+<p><a href="http://opoo.org/octopress/">http://opoo.org/octopress/</a></p>
+
+<p><a href="http://www.jianshu.com/p/0ac2ac1a8e45">octopress博客搭建和个性化配置</a></p>
+
+<p>主要的步骤就是：</p>
+
+<blockquote><ol>
+<li>安装必需的软件，包括git ruby ruby-dev</li>
+</ol>
+
+
+<p>2.下载octopress，并且首先用gem sources -remove url删除原有的url，然后gem sources -add ruby.taobao.com
+同时修改Gemfile文件，把url换成淘宝的那个</p>
+
+<p>3.在octopress文件夹内，依次执行gem install bundler；bundle install；rake install octopress安装成功</p>
+
+<p>4.之后在github上新建repos，命名规则为username.github.io (<strong>之后octopress的_deploy文件夹即网站会部署在master分支上</strong>）</p>
+
+<p>5.执行rake setup_github_pages与上述的repos地址关联，然后执行rake generate，rake deploy OK</p>
+
+<p>6.之后可以添加插件，进行自定义的设置</p></blockquote>
+
+<p>2015-3-16</p>
 ]]></content>
   </entry>
   
