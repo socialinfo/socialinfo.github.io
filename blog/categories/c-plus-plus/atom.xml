@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: C++ | 燕东的博客]]></title>
+  <title><![CDATA[Category: c++ | 燕东的博客]]></title>
   <link href="http://yandongdabin.github.io/blog/categories/c-plus-plus/atom.xml" rel="self"/>
   <link href="http://yandongdabin.github.io/"/>
-  <updated>2015-03-15T22:36:19+08:00</updated>
+  <updated>2015-03-15T23:28:39+08:00</updated>
   <id>http://yandongdabin.github.io/</id>
   <author>
     <name><![CDATA[燕东]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[I've Made It]]></title>
+    <title type="html"><![CDATA[I've made it]]></title>
     <link href="http://yandongdabin.github.io/blog/2015/03/15/ive-made-it/"/>
     <updated>2015-03-15T21:27:21+08:00</updated>
     <id>http://yandongdabin.github.io/blog/2015/03/15/ive-made-it</id>
