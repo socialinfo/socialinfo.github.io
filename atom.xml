@@ -4,7 +4,7 @@
   <title><![CDATA[燕东的博客]]></title>
   <link href="http://yandongdabin.github.io/atom.xml" rel="self"/>
   <link href="http://yandongdabin.github.io/"/>
-  <updated>2015-03-15T23:28:39+08:00</updated>
+  <updated>2015-03-16T18:33:43+08:00</updated>
   <id>http://yandongdabin.github.io/</id>
   <author>
     <name><![CDATA[燕东]]></name>
@@ -12,6 +12,58 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[octopress的安装过程]]></title>
+    <link href="http://yandongdabin.github.io/blog/2015/03/16/wo-de-bo-ke/"/>
+    <updated>2015-03-16T17:39:53+08:00</updated>
+    <id>http://yandongdabin.github.io/blog/2015/03/16/wo-de-bo-ke</id>
+    <content type="html"><![CDATA[<!-- more -->
+
+
+<p>废了几个小时的功夫，终于把octopress给安装完成了，现在我正在学习markdown的语法，所以会感到有一些的别扭。那么就用我这不太熟悉的markdown语法写下关于markdown和octopress的一些知识。</p>
+
+<h1>markdown的基本语法</h1>
+
+<h3>段落和换行</h3>
+
+<p>一个 Markdown 段落是由一个或多个连续的文本行组成，它的前后要有一个以上的空行（空行的定义是显示上看起来像是空的，便会被视为空行。比方说，若某一行只包含空格和制表符，则该行也会被视为空行）。普通段落不该用空格或制表符来缩进。  <strong>一定要注意这一点，即不同段落之间要有空行相隔.</strong><br/>
+换行的话需要先在插入处先按入两个以上的空格然后回车，这样就插入了一个<code>&lt;br/&gt;</code></p>
+
+<h3>列表</h3>
+
+<p>markdown支持无序列表和有序列表两种形式，对于无序列表来说有:</p>
+
+<pre><code>+list1
++list2
++list3
+</code></pre>
+
+<p>或者是：</p>
+
+<pre><code>*list1
+*list2
+*list3
+</code></pre>
+
+<p>或者是：</p>
+
+<pre><code>-list1
+-list2
+-list3
+</code></pre>
+
+<p>有序列表可以：</p>
+
+<pre><code>1. list1
+2. list2
+3. list3
+</code></pre>
+
+<p> <strong>1.序号后面要跟空格（最多三个），并且序号的顺序和取值是无所谓的。</strong><br/>
+<strong>2.有多个段落的时候，每个段落需要缩进一个TAB或者是4个空格。</strong></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[test_markdown]]></title>

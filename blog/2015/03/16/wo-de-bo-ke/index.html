@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>燕东的博客</title>
+  <title>octopress的安装过程 - 燕东的博客</title>
   <meta name="author" content="燕东">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yandongdabin.github.io">
+  <link rel="canonical" href="http://yandongdabin.github.io/blog/2015/03/16/wo-de-bo-ke">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/bootstrap/bootstrap.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/bootstrap/responsive.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -89,15 +89,13 @@
 </nav>
   <div class="container">
     <div class="row-fluid">
-      <div class="span9">
-  
-  
-  
-    <article>
       
+<article class="hentry span9" role="article">
+
+  
   <header class="page-header">
     
-      <h1 class="entry-title"><a href="/blog/2015/03/16/wo-de-bo-ke/">Octopress的安装过程</a></h1>
+      <h1 class="entry-title">Octopress的安装过程</h1>
     
     
       <p class="meta">
@@ -108,128 +106,106 @@
 
 <time class='entry-date' datetime='2015-03-16T17:39:53+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:39 pm</span></time>
         
-         | <a href="/blog/2015/03/16/wo-de-bo-ke/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"></div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2015/03/16/wo-de-bo-ke/">阅读全文 &rarr;</a>
-    </footer>
-  
+<div class="entry-content"><!-- more -->
 
 
-    </article>
-  
-  
-    <article>
+<p>废了几个小时的功夫，终于把octopress给安装完成了，现在我正在学习markdown的语法，所以会感到有一些的别扭。那么就用我这不太熟悉的markdown语法写下关于markdown和octopress的一些知识。</p>
+
+<h1>markdown的基本语法</h1>
+
+<h3>段落和换行</h3>
+
+<p>一个 Markdown 段落是由一个或多个连续的文本行组成，它的前后要有一个以上的空行（空行的定义是显示上看起来像是空的，便会被视为空行。比方说，若某一行只包含空格和制表符，则该行也会被视为空行）。普通段落不该用空格或制表符来缩进。  <strong>一定要注意这一点，即不同段落之间要有空行相隔.</strong><br/>
+换行的话需要先在插入处先按入两个以上的空格然后回车，这样就插入了一个<code>&lt;br/&gt;</code></p>
+
+<h3>列表</h3>
+
+<p>markdown支持无序列表和有序列表两种形式，对于无序列表来说有:</p>
+
+<pre><code>+list1
++list2
++list3
+</code></pre>
+
+<p>或者是：</p>
+
+<pre><code>*list1
+*list2
+*list3
+</code></pre>
+
+<p>或者是：</p>
+
+<pre><code>-list1
+-list2
+-list3
+</code></pre>
+
+<p>有序列表可以：</p>
+
+<pre><code>1. list1
+2. list2
+3. list3
+</code></pre>
+
+<p> <strong>1.序号后面要跟空格（最多三个），并且序号的顺序和取值是无所谓的。</strong><br/>
+<strong>2.有多个段落的时候，每个段落需要缩进一个TAB或者是4个空格。</strong></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
       
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2015/03/15/test-markdown/">Test_markdown</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-03-15T23:10:52+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:10 pm</span></time>
-        
-         | <a href="/blog/2015/03/15/test-markdown/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>To know what is markdown</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2015/03/15/test-markdown/">阅读全文 &rarr;</a>
-    </footer>
   
 
+<span class="byline author vcard">Posted by <span class="fn">燕东</span></span>
 
-    </article>
-  
-  
-    <article>
       
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2015/03/15/ive-made-it/">I&#8217;ve Made It</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
 
-<time class='entry-date' datetime='2015-03-15T21:27:21+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>9:27 pm</span></time>
-        
-         | <a href="/blog/2015/03/15/ive-made-it/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<time class='entry-date' datetime='2015-03-16T17:39:53+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:39 pm</span></time>
       
-  <header class="page-header">
+
+
+    </p>
     
-      <h1 class="entry-title"><a href="/blog/2015/03/15/new-post/">New Post</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-03-15T21:09:30+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>9:09 pm</span></time>
-        
-         | <a href="/blog/2015/03/15/new-post/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://yandongdabin.github.io/blog/2015/03/16/wo-de-bo-ke/" data-via="" data-counturl="http://yandongdabin.github.io/blog/2015/03/16/wo-de-bo-ke/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
-
-    </article>
-  
-  <ul class="pager">
     
-    <li><a href="/blog/archives">Blog Archives</a></li>
     
-  </ul>
+    <section>
+      <h1>Comments</h1>
+      <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+    </section>
+    
+    <ul class="pager">
+      
+      <li class="previous"><a class="basic-alignment left"
+        href="/blog/2015/03/15/test-markdown/" title="Previous Post:
+        test_markdown">&laquo; test_markdown</a></li>
+      
+      <li><a href="/blog/archives">Blog Archives</a></li>
+      
+    </ul>
+  </footer>
+</article>
+
 <aside class="sidebar-nav span3">
   
     <section> 
@@ -278,6 +254,7 @@
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo" class="page-footer"><hr>
@@ -293,7 +270,10 @@
       var disqus_shortname = 'yandong';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://yandongdabin.github.io/blog/2015/03/16/wo-de-bo-ke/';
+        var disqus_url = 'http://yandongdabin.github.io/blog/2015/03/16/wo-de-bo-ke/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
