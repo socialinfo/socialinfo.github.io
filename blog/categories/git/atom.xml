@@ -4,7 +4,7 @@
   <title><![CDATA[Category: git | 燕东的博客]]></title>
   <link href="http://yandongdabin.github.io/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://yandongdabin.github.io/"/>
-  <updated>2015-03-17T12:41:57+08:00</updated>
+  <updated>2015-03-17T12:43:13+08:00</updated>
   <id>http://yandongdabin.github.io/</id>
   <author>
     <name><![CDATA[燕东]]></name>
@@ -18,7 +18,10 @@
     <link href="http://yandongdabin.github.io/blog/2015/03/17/gitxue-xi/"/>
     <updated>2015-03-17T11:56:08+08:00</updated>
     <id>http://yandongdabin.github.io/blog/2015/03/17/gitxue-xi</id>
-    <content type="html"><![CDATA[<h2>1. 初始化仓库</h2>
+    <content type="html"><![CDATA[<!---more-->
+
+
+<h2>1. 初始化仓库</h2>
 
 <p>用到的命令</p>
 
