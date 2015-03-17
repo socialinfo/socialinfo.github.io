@@ -4,7 +4,7 @@
   <title><![CDATA[Category: git | 燕东的博客]]></title>
   <link href="http://yandongdabin.github.io/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://yandongdabin.github.io/"/>
-  <updated>2015-03-17T12:45:37+08:00</updated>
+  <updated>2015-03-17T12:47:57+08:00</updated>
   <id>http://yandongdabin.github.io/</id>
   <author>
     <name><![CDATA[燕东]]></name>
@@ -69,44 +69,46 @@ git rm file 删除文件
 
 <blockquote><p>当合并分支时可能会引起冲突,此时用git status查看产生冲突的文件,然后修改 &lt;&lt;&lt;&lt;&lt;  =========  >>>>>>之间的部分,修改后add commit 冲突解决</p></blockquote>
 
-<ul>
-<li><h3><strong>stash</strong></h3>
+<h2>4.stash</h2>
 
-<p>  git stash 将当前为提交的工作区保存起来
-  git  stash apply + git stash drop = git stash pop 应用原先保存的工作区,并且删除之前保存的内容
-  git stash list 查看当前保存的列表</p></li>
-<li><h3><strong>多人协作</strong></h3>
+<pre><code>git stash 将当前为提交的工作区保存起来
+git  stash apply + git stash drop = git stash pop 应用原先保存的工作区,并且删除之前保存的内容
+git stash list 查看当前保存的列表
+</code></pre>
+
+<h2>5.多人协作</h2>
 
 <blockquote><h4>当clone下一个远程库的时候本地只会有一个master分支,所以需要在本地建立对应远程开发的分支</h4></blockquote>
 
-<p>  当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin
-  git remote -v 查看远程仓库的详细信息
-  git push origin branchname 其中branchbane指的是本地的branchname,这条命令会把本地的分支推送到远程对应的分支上去</p>
+<pre><code>当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin
+git remote -v 查看远程仓库的详细信息
+git push origin branchname 其中branchbane指的是本地的branchname,这条命令会把本地的分支推送到远程对应的分支上去
 
-<p>  首先，可以试图用git push origin branch-name推送自己的修改；</p>
+首先，可以试图用git push origin branch-name推送自己的修改；
 
-<p>  如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；</p>
+如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
 
-<p>  如果合并有冲突，则解决冲突，并在本地提交；</p>
+如果合并有冲突，则解决冲突，并在本地提交；
 
-<p>  没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！</p>
+没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
 
-<p>  如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch &ndash;set-upstream branch-name origin/branch-name。</p></li>
-<li><h3><strong>标签</strong></h3>
+如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
+</code></pre>
 
-<p>  命令git tag <name>用于新建一个标签，默认为HEAD，也可以指定一个commit id</p>
+<h2>6.标签</h2>
 
-<p>  命令git push origin <tagname>可以推送一个本地标签；</p>
+<pre><code>命令git tag &lt;name&gt;用于新建一个标签，默认为HEAD，也可以指定一个commit id
 
-<p>  命令git push origin &ndash;tags可以推送全部未推送过的本地标签；</p>
+命令git push origin &lt;tagname&gt;可以推送一个本地标签；
 
-<p>  命令git tag -d <tagname>可以删除一个本地标签；</p>
+命令git push origin --tags可以推送全部未推送过的本地标签；
 
-<p>  命令git push origin :refs/tags/<tagname>可以删除一个远程标签。</p>
+命令git tag -d &lt;tagname&gt;可以删除一个本地标签；
 
-<p>  git show tagname 可以查看tag的详细信息</p></li>
-</ul>
+命令git push origin :refs/tags/&lt;tagname&gt;可以删除一个远程标签。
 
+git show tagname 可以查看tag的详细信息
+</code></pre>
 ]]></content>
   </entry>
   
