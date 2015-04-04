@@ -4,7 +4,7 @@
   <title><![CDATA[燕东的博客]]></title>
   <link href="http://yandongdabin.github.io/atom.xml" rel="self"/>
   <link href="http://yandongdabin.github.io/"/>
-  <updated>2015-03-17T12:51:18+08:00</updated>
+  <updated>2015-04-04T09:54:47+08:00</updated>
   <id>http://yandongdabin.github.io/</id>
   <author>
     <name><![CDATA[燕东]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[关于二维指针的那些事情]]></title>
+    <link href="http://yandongdabin.github.io/blog/2015/04/04/guan-yu-er-wei-zhi-zhen-de-na-xie-shi-qing/"/>
+    <updated>2015-04-04T09:39:29+08:00</updated>
+    <id>http://yandongdabin.github.io/blog/2015/04/04/guan-yu-er-wei-zhi-zhen-de-na-xie-shi-qing</id>
+    <content type="html"><![CDATA[<p>最近在用二维数组传参的时候遇到了一些问题，感觉自己还是学的太菜了，纸上谈兵，从网上搜索了一篇博客，上面从编译器的角度解释了各类指针之间的关系。
+首先是文字说明，编译器对不同类型的解释形式:</p>
+
+<blockquote><p>“数组名被改写成一个指针参数”规则并不是递归定义的。数组的数组会被改写成“数组的指针”，而不是“指针的指针”：</p>
+
+<p>实参                                                      所匹配的形参</p>
+
+<p>数组的数组          char c[8][10];                 char (*)[10];          数组指针</p>
+
+<p>指针数组             char *c[10];                   char **c;               指针的指针</p>
+
+<p>数组指针(行指针)  char (<em>c)[10];                 char (</em>c)[10];        不改变</p>
+
+<p>指针的指针           char <strong>c;                       char </strong>c;               不改变</p></blockquote>
+
+<h2>下面是代码说明</h2>
+
+<pre><code>    #include "stdafx.h" 
+    #include &lt;iostream&gt; 
+    using namespace std; 
+
+    int _tmain(int argc, _TCHAR* argv[]) 
+    { 
+        int arr1[3]; 
+        int arr2[3]; 
+        int arr3[3]; 
+        int * ptr; 
+        // ptr1是一个指向 int [3] 的指针，即ptr的类型和&amp;arr1的类型是一样的，注意：arr1指向的内存区域定长 
+        int ptr1[3][3]=\{\{1,2,3\},\{1,2,3\},\{1,2,3\}\}; 
+        // ptr2是一个指向 int * 的指针，即ptr2的类型和&amp;ptr是一样的，注意：ptr指向的内存区域不定长 
+        int * ptr2[3]=\{arr1,arr2,arr3\}; 
+        // ptr3是一个指向 int [3] 的指针，即ptr3的类型和&amp;arr1的类型是一样的，注意：arr1指向的内存区域定长 
+        int(* ptr3)[3]=&amp;arr1; 
+        ptr3=ptr1; // 没错，他们的类型相同 
+     // ptr3=ptr2;//error 无法从“int *[3]”转换为“int (*)[3] 
+     // ptr4是一个指向 int * 的指针，即ptr4的类型和&amp;ptr是一样的，注意：ptr指向的内存区域不定长 
+        int ** ptr4; 
+        //ptr4=&amp;arr1; //error 无法从“int (*)[3]”转换为“int ** 
+        ptr4=ptr2; // 没错，他们的类型相同 
+     //ptr4=ptr3; // error 无法从“int (*)[3]”转换为“int ** 
+        return 0; 
+    }
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[如何下载coursera课程]]></title>
+    <link href="http://yandongdabin.github.io/blog/2015/03/20/ru-he-xia-zai-courserake-cheng/"/>
+    <updated>2015-03-20T09:39:02+08:00</updated>
+    <id>http://yandongdabin.github.io/blog/2015/03/20/ru-he-xia-zai-courserake-cheng</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[git学习]]></title>

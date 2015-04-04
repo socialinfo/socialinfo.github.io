@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: coursera | 燕东的博客]]></title>
+  <link href="http://yandongdabin.github.io/blog/categories/coursera/atom.xml" rel="self"/>
+  <link href="http://yandongdabin.github.io/"/>
+  <updated>2015-04-04T09:54:47+08:00</updated>
+  <id>http://yandongdabin.github.io/</id>
+  <author>
+    <name><![CDATA[燕东]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[如何下载coursera课程]]></title>
+    <link href="http://yandongdabin.github.io/blog/2015/03/20/ru-he-xia-zai-courserake-cheng/"/>
+    <updated>2015-03-20T09:39:02+08:00</updated>
+    <id>http://yandongdabin.github.io/blog/2015/03/20/ru-he-xia-zai-courserake-cheng</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yandongdabin.github.io/blog/2015/04/04/guan-yu-er-wei-zhi-zhen-de-na-xie-shi-qing/</loc>
+    <lastmod>2015-04-04T09:39:29+08:00</lastmod>
+  </url>
+  <url>
+    <loc>http://yandongdabin.github.io/blog/2015/03/20/ru-he-xia-zai-courserake-cheng/</loc>
+    <lastmod>2015-03-20T09:39:02+08:00</lastmod>
+  </url>
+  <url>
     <loc>http://yandongdabin.github.io/blog/2015/03/17/gitxue-xi/</loc>
     <lastmod>2015-03-17T11:56:08+08:00</lastmod>
   </url>
@@ -19,5 +27,8 @@
   </url>
   <url>
     <loc>http://yandongdabin.github.io/blog/categories/git/</loc>
+  </url>
+  <url>
+    <loc>http://yandongdabin.github.io/blog/categories/coursera/</loc>
   </url>
 </urlset>
