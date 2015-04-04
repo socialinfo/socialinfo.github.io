@@ -4,7 +4,7 @@
   <title><![CDATA[燕东的博客]]></title>
   <link href="http://yandongdabin.github.io/atom.xml" rel="self"/>
   <link href="http://yandongdabin.github.io/"/>
-  <updated>2015-04-04T09:54:47+08:00</updated>
+  <updated>2015-04-04T13:28:05+08:00</updated>
   <id>http://yandongdabin.github.io/</id>
   <author>
     <name><![CDATA[燕东]]></name>
@@ -59,6 +59,80 @@
         ptr4=ptr2; // 没错，他们的类型相同 
      //ptr4=ptr3; // error 无法从“int (*)[3]”转换为“int ** 
         return 0; 
+    }
+
+   #include&lt;iostream&gt;
+    using namespace std;
+    const int N = 10;
+    int main()
+    {
+
+        /*A是一个指针数组 */
+        int **A = new int *[N];
+        /*注意此处申请了各个空间不连续，和A[N][N]的方式要区分开来*/
+        for(int i=0;i&lt;N;i++)
+        {
+            A[i] = new int [N];
+        }
+        A[1][1] = 10;
+
+        /*下面的输出中 一二个地址相同， 三四个地址相同
+        说明了每次new出的地址可能不相邻
+        */
+        double *B  = (double *)A;
+
+        cout&lt;&lt;"The two address is same"&lt;&lt;endl;
+        cout&lt;&lt;A&lt;&lt;endl;
+        cout&lt;&lt;B&lt;&lt;endl;
+
+        cout&lt;&lt;"The two address is same"&lt;&lt;endl;
+        cout&lt;&lt;A[0]&lt;&lt;endl;
+        cout&lt;&lt;&amp;A[0][0]&lt;&lt;endl;
+
+
+        /*下面两个的输出不相同
+        原因就是每个new操作申请的空间可能不相邻
+        但是如果对于 A[N][N]来说，这两者应该是相同的
+        */
+        cout&lt;&lt;"The output of the following two line wouldn't be the same"&lt;&lt;endl;
+        cout&lt;&lt;*(*(A+1)+1)&lt;&lt;endl;
+        cout&lt;&lt;*(B+1*N+1)&lt;&lt;endl; // double *B  = (double *)A;
+
+
+        /*验证了上面的说法 三者输出一致*/
+        int C[N][N];
+        C[1][1] = 10;
+
+
+        int *D = (int *)C;
+
+        cout&lt;&lt;"The output of the following three line would be the same"&lt;&lt;endl;
+        cout&lt;&lt;C[1][1]&lt;&lt;endl;
+        cout&lt;&lt;*(D+1*N+1)&lt;&lt;endl;
+        cout&lt;&lt;*(*(C+1)+1)&lt;&lt;endl;
+
+
+        int *F[N];//F是指向 int *类型的 数组，数组大小为N
+        for(int i=0;i&lt;N;i++)
+        {
+            F[i] = new int[N];
+        }
+        F[1][1] =10;
+
+        /*两者相等*/
+        cout&lt;&lt;F[1][1]&lt;&lt;endl;
+        cout&lt;&lt;*(*(F+1)+1)&lt;&lt;endl;
+
+        /*不可预料*/
+        int *G = (int *)F;
+        cout&lt;&lt;*(G+1*N+1)&lt;&lt;endl;
+
+        /*如果把此处的 (int(*)[N][N])C换成C 则编译不通过，因为 在编译器看来C的类型 int(*)[10]而不是 int[N][N]*/
+        int (*H)[N][N] = (int(*)[N][N]) C;//H是指向 int[N][N]类型的指针
+        /*可以用这种方式来访问C中的元素*/
+        cout&lt;&lt;(*H)[1][1]&lt;&lt;endl;
+
+        return 0;
     }
 </code></pre>
 ]]></content>
