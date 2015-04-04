@@ -4,7 +4,7 @@
   <title><![CDATA[燕东的博客]]></title>
   <link href="http://yandongdabin.github.io/atom.xml" rel="self"/>
   <link href="http://yandongdabin.github.io/"/>
-  <updated>2015-04-04T13:28:05+08:00</updated>
+  <updated>2015-04-04T13:35:23+08:00</updated>
   <id>http://yandongdabin.github.io/</id>
   <author>
     <name><![CDATA[燕东]]></name>
@@ -18,20 +18,38 @@
     <link href="http://yandongdabin.github.io/blog/2015/04/04/guan-yu-er-wei-zhi-zhen-de-na-xie-shi-qing/"/>
     <updated>2015-04-04T09:39:29+08:00</updated>
     <id>http://yandongdabin.github.io/blog/2015/04/04/guan-yu-er-wei-zhi-zhen-de-na-xie-shi-qing</id>
-    <content type="html"><![CDATA[<p>最近在用二维数组传参的时候遇到了一些问题，感觉自己还是学的太菜了，纸上谈兵，从网上搜索了一篇博客，上面从编译器的角度解释了各类指针之间的关系。
-首先是文字说明，编译器对不同类型的解释形式:</p>
+    <content type="html"><![CDATA[<p>最近在用二维数组传参的时候遇到了一些问题，感觉自己还是学的太菜了，纸上谈兵，从网上搜索了一篇博客，上面从编译器的角度解释了各类指针之间的关系。</p>
 
-<blockquote><p>“数组名被改写成一个指针参数”规则并不是递归定义的。数组的数组会被改写成“数组的指针”，而不是“指针的指针”：</p>
+<!--more-->
 
-<p>实参                                                      所匹配的形参</p>
 
-<p>数组的数组          char c[8][10];                 char (*)[10];          数组指针</p>
+<p>首先是文字说明，编译器对不同类型的解释形式:</p>
 
-<p>指针数组             char *c[10];                   char **c;               指针的指针</p>
+<blockquote><p>“数组名被改写成一个指针参数”规则并不是递归定义的。数组的数组会被改写成“数组的指针”，而不是“指针的指针”：</p></blockquote>
 
-<p>数组指针(行指针)  char (<em>c)[10];                 char (</em>c)[10];        不改变</p>
+<p> <table>
+ <tr>
+ <td> 实参 </td>
+ <td>所匹配的形参</td>
+ </tr>
+ <tr>
+ <td>  数组的数组          char c[8][10];   </td>
+ <td>char (<em>)[10];          数组指针</td>
+ </tr>
+ <tr>
+ <td>  指针数组             char </em>c[10];  </td>
+ <td>  char <strong>c;               指针的指针</td>
+ </tr>
+ <tr>
+ <td>  数组指针(行指针)  char (<em>c)[10];  </td>
+ <td>char (</em>c)[10];        不改变</td>
+ </tr>
+<tr>
+ <td> 指针的指针           char </strong>c;  </td>
+ <td> char **c;               不改变</td>
+ </tr></p>
 
-<p>指针的指针           char <strong>c;                       char </strong>c;               不改变</p></blockquote>
+<p> </table></p>
 
 <h2>下面是代码说明</h2>
 
