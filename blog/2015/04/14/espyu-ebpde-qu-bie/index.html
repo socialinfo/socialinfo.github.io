@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: octopress - 燕东的博客</title>
+  <title>esp与ebp的区别 - 燕东的博客</title>
   <meta name="author" content="燕东">
 
   
-  <meta name="description" content="Category: octopress">
+  <meta name="description" content="燕东,github,c++">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yandongdabin.github.io/blog/categories/octopress">
+  <link rel="canonical" href="http://yandongdabin.github.io/blog/2015/04/14/espyu-ebpde-qu-bie">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/bootstrap/bootstrap.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/bootstrap/responsive.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -90,38 +90,136 @@
   <div class="container">
     <div class="row-fluid">
       
-<article role="article" class="span9">
+<article class="hentry span9" role="article">
 
   
   <header class="page-header">
-    <h1 class="entry-title">Category: Octopress</h1>
+    
+      <h1 class="entry-title">Esp与ebp的区别</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-04-14T11:20:48+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:20 am</span></time>
+        
+         | <a href="#disqus_thread">评论</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><!--more-->
 
-  
-  <h1>2015</h1>
 
-<article>
-  <div class="well">
+<p>首先开门见山，引用别人的一句话</p>
 
-<h2><a href="/blog/2015/03/16/wo-de-bo-ke/">octopress的安装过程</a></h2>
-<time datetime="2015-03-16T17:39:53+08:00" pubdate><span class='month'>Mar</span> <span class='day'>16</span> <span class='year'>2015</span></time>
+<blockquote><p><strong>ESP就是一直指向栈顶的指针,而EBP只是存取某时刻的栈顶指针,以方便对栈的操作,如获取函数参数、局部变量等。</strong></p></blockquote>
 
-<footer>
-  <span class="categories">发表在 <a class='category' href='/blog/categories/octopress/'>octopress</a></span>
-</footer>
+<p>上一段C语言以及其的汇编代码</p>
 
+<pre><code>    int main()
+    {
+        test(1,2);    
+        return 0;
+
+    }
+    int test(int a,int b)
+    {
+        int c = a + b;
+        return c;
+    }
+
+    main:
+        pushl   %ebp
+        movl    %esp, %ebp
+        andl    $-16, %esp
+        subl    $16, %esp
+        movl    $2, 4(%esp)  
+        movl    $1, (%esp)
+        call    test
+        movl    $0, %eax  #return 0
+        leave
+        ret
+    test:
+        pushl   %ebp
+        movl    %esp, %ebp
+        subl    $16, %esp
+        movl    12(%ebp), %eax
+        movl    8(%ebp), %edx
+        addl    %edx, %eax
+        movl    %eax, -4(%ebp)
+        movl    -4(%ebp), %eax
+        leave
+        ret
+</code></pre>
+
+<p>上述的汇编代码中每个函数调用时都先保存了ebp，并且将当前的esp赋值给了ebp，在函数调用完毕都恢复了ebp使用的leave指令（等价为movl %ebp, %esp　popl %ebp）</p>
+
+<p><strong>cdecl 与 </strong>stdcall的区别就是 <strong>cdecl需要自己完成函数的清除工作，而</strong>stdcall会用ret n自动完成清除工作</p>
+
+<p>相关博文地址　</p>
+
+<p>[<a href="http://www.360doc.com/content/11/0816/21/3398926_141002836.shtml">http://www.360doc.com/content/11/0816/21/3398926_141002836.shtml</a>]
+　　　　　　　
+[<a href="http://blog.csdn.net/striver1205/article/details/25216699">http://blog.csdn.net/striver1205/article/details/25216699</a>]</p>
 </div>
 
-</article>
 
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">燕东</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-04-14T11:20:48+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:20 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/at-and-t/'>at&t</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://yandongdabin.github.io/blog/2015/04/14/espyu-ebpde-qu-bie/" data-via="" data-counturl="http://yandongdabin.github.io/blog/2015/04/14/espyu-ebpde-qu-bie/" >Tweet</a>
+  
+  
+  
 </div>
 
-  
+    
+    
+    <section>
+      <h1>评论</h1>
+      <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </section>
+    
+    <ul class="pager">
+      
+      <li class="previous"><a class="basic-alignment left"
+        href="/blog/2015/04/04/guan-yu-er-wei-zhi-zhen-de-na-xie-shi-qing/" title="Previous Post:
+        关于二维指针的那些事情">&laquo; 关于二维指针的那些事情</a></li>
+      
+      <li><a href="/blog/archives">归档</a></li>
+      
+    </ul>
+  </footer>
 </article>
 
 <aside class="sidebar-nav span3">
@@ -195,7 +293,10 @@
       var disqus_shortname = 'yandongdabin';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://yandongdabin.github.io/blog/2015/04/14/espyu-ebpde-qu-bie/';
+        var disqus_url = 'http://yandongdabin.github.io/blog/2015/04/14/espyu-ebpde-qu-bie/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

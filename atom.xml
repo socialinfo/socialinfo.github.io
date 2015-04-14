@@ -4,7 +4,7 @@
   <title><![CDATA[燕东的博客]]></title>
   <link href="http://yandongdabin.github.io/atom.xml" rel="self"/>
   <link href="http://yandongdabin.github.io/"/>
-  <updated>2015-04-04T15:09:35+08:00</updated>
+  <updated>2015-04-14T12:36:05+08:00</updated>
   <id>http://yandongdabin.github.io/</id>
   <author>
     <name><![CDATA[燕东]]></name>
@@ -12,6 +12,68 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[esp与ebp的区别]]></title>
+    <link href="http://yandongdabin.github.io/blog/2015/04/14/espyu-ebpde-qu-bie/"/>
+    <updated>2015-04-14T11:20:48+08:00</updated>
+    <id>http://yandongdabin.github.io/blog/2015/04/14/espyu-ebpde-qu-bie</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<p>首先开门见山，引用别人的一句话</p>
+
+<blockquote><p><strong>ESP就是一直指向栈顶的指针,而EBP只是存取某时刻的栈顶指针,以方便对栈的操作,如获取函数参数、局部变量等。</strong></p></blockquote>
+
+<p>上一段C语言以及其的汇编代码</p>
+
+<pre><code>    int main()
+    {
+        test(1,2);    
+        return 0;
+
+    }
+    int test(int a,int b)
+    {
+        int c = a + b;
+        return c;
+    }
+
+    main:
+        pushl   %ebp
+        movl    %esp, %ebp
+        andl    $-16, %esp
+        subl    $16, %esp
+        movl    $2, 4(%esp)  
+        movl    $1, (%esp)
+        call    test
+        movl    $0, %eax  #return 0
+        leave
+        ret
+    test:
+        pushl   %ebp
+        movl    %esp, %ebp
+        subl    $16, %esp
+        movl    12(%ebp), %eax
+        movl    8(%ebp), %edx
+        addl    %edx, %eax
+        movl    %eax, -4(%ebp)
+        movl    -4(%ebp), %eax
+        leave
+        ret
+</code></pre>
+
+<p>上述的汇编代码中每个函数调用时都先保存了ebp，并且将当前的esp赋值给了ebp，在函数调用完毕都恢复了ebp使用的leave指令（等价为movl %ebp, %esp　popl %ebp）</p>
+
+<p><strong>cdecl 与 </strong>stdcall的区别就是 <strong>cdecl需要自己完成函数的清除工作，而</strong>stdcall会用ret n自动完成清除工作</p>
+
+<p>相关博文地址　</p>
+
+<p>[<a href="http://www.360doc.com/content/11/0816/21/3398926_141002836.shtml">http://www.360doc.com/content/11/0816/21/3398926_141002836.shtml</a>]
+　　　　　　　
+[<a href="http://blog.csdn.net/striver1205/article/details/25216699">http://blog.csdn.net/striver1205/article/details/25216699</a>]</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[关于二维指针的那些事情]]></title>
