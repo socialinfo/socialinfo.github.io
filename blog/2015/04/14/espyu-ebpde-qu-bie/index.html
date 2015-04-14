@@ -137,24 +137,24 @@
     main:
         pushl   %ebp
         movl    %esp, %ebp
-        andl    $-16, %esp
-        subl    $16, %esp
-        movl    $2, 4(%esp)  
-        movl    $1, (%esp)
-        call    test
+        andl    $-16, %esp #对齐esp保证四字节对齐，-16表示为0xfffffff0
+        subl    $16, %esp #为局部变量开辟空间，1 2 还有main函数隐含的两个参数
+        movl    $2, 4(%esp)  #将２存入栈所指的内存地址+ 4
+        movl    $1, (%esp)　#将１存入栈所指的内存地址
+        call    test　#函数调用
         movl    $0, %eax  #return 0
-        leave
+        leave　#清栈　并恢复ebp
         ret
     test:
-        pushl   %ebp
-        movl    %esp, %ebp
-        subl    $16, %esp
-        movl    12(%ebp), %eax
-        movl    8(%ebp), %edx
-        addl    %edx, %eax
-        movl    %eax, -4(%ebp)
-        movl    -4(%ebp), %eax
-        leave
+        pushl   %ebp #保存调用函数的ebp
+        movl    %esp, %ebp ＃将当前栈顶赋值给ebp方便局部变量的引用
+        subl    $16, %esp　#为局部变量开辟空间　a,b,c为了对齐开辟了16个字节
+        movl    12(%ebp), %eax　#此时ebp的作用显示出来了,取１
+        movl    8(%ebp), %edx　#取２
+        addl    %edx, %eax　#1+2-&gt;eax
+        movl    %eax, -4(%ebp) ＃eax-&gt;c
+        movl    -4(%ebp), %eax ＃return c   c-&gt;eax
+        leave #清栈　并恢复ebp
         ret
 </code></pre>
 
